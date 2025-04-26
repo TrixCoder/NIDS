@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time NIDS Alerts</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 20px; background-color: #f4f4f4; }
+        h1 { color: #333; border-bottom: 2px solid #333; padding-bottom: 10px; }
+        #alerts-container { max-width: 900px; margin: 20px auto; background: #fff; padding: 15px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.1); min-height: 300px; max-height: 60vh; overflow-y: auto;}
+        .alert {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            background-color: #fff;
+            word-wrap: break-word;
+        }
+        .alert-error { border-left: 5px solid #d9534f; background-color: #f2dede; }
+        .alert-warning { border-left: 5px solid #f0ad4e; background-color: #fcf8e3; }
+        .alert-info { border-left: 5px solid #5bc0de; background-color: #d9edf7; }
+        .alert strong { display: inline-block; min-width: 80px; }
+        .timestamp { font-size: 0.85em; color: #666; float: right; }
+        #status { margin-top: 15px; font-style: italic; color: #555; }
+        #clear-button {
+            display: block;
+            margin: 15px auto;
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Network Intrusion Detection System - Alerts</h1>
+
+    <div id="alerts-container"></div>
+    <button id="clear-button">Clear Alerts</button>
+    <div id="status">Connecting to server...</div>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+        const alertsContainer = document.getElementById('alerts-container');
+        const statusDiv = document.getElementById('status');
+        const clearButton = document.getElementById('clear-button');
+        const maxAlerts = 100;
+
+        const socket = io();
+
+        socket.on('connect', () => {
+            statusDiv.textContent = 'Connected to NIDS alert server.';
+            statusDiv.style.color = 'green';
+            console.log('Socket.IO connected successfully');
+        });
+
+        socket.on('disconnect', () => {
+            statusDiv.textContent = 'Disconnected from NIDS alert server. Attempting to reconnect...';
+            statusDiv.style.color = 'red';
+            console.log('Socket.IO disconnected');
+        });
+
+        socket.on('connect_error', (err) => {
+            statusDiv.textContent = `Connection Error: ${err.message}`;
+            statusDiv.style.color = 'red';
+            console.error('Socket.IO connection error:', err);
+        });
+
+        socket.on('display_packet', (data) => {
+            console.log('Received alert data:', data);
+            displayAlert(data);
+        });
+
+        function displayAlert(data) {
+            const alertDiv = document.createElement('div');
+            alertDiv.classList.add('alert');
+
+            if (data.type && data.type.toLowerCase().includes('scan')) {
+                alertDiv.classList.add('alert-warning');
+            } else {
+                alertDiv.classList.add('alert-info');
+            }
+
+            let content = `<span class="timestamp">${data.timestamp || new Date().toLocaleTimeString()}</span>`;
+            content += `<strong>Type:</strong> ${escapeHtml(data.type || 'Unknown')}<br>`;
+            if (data.source_ip) content += `<strong>Source IP:</strong> ${escapeHtml(data.source_ip)}<br>`;
+            if (data.target_port) content += `<strong>Dest Port:</strong> ${escapeHtml(data.target_port.toString())}<br>`;
+            if (data.details) content += `<strong>Details:</strong> ${escapeHtml(data.details)}<br>`;
+
+            alertDiv.innerHTML = content;
+            alertsContainer.insertBefore(alertDiv, alertsContainer.firstChild);
+
+            while (alertsContainer.children.length > maxAlerts) {
+                alertsContainer.removeChild(alertsContainer.lastChild);
+            }
+        }
+
+        function escapeHtml(unsafe) {
+            if (unsafe === null || unsafe === undefined) return '';
+            return unsafe
+                .toString()
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        clearButton.addEventListener('click', () => {
+            alertsContainer.innerHTML = '';
+        });
+
+    </script>
+
+</body>
+</html>

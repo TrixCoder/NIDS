@@ -1,0 +1,14 @@
+[
+  {
+    "type": "NULL Scan Detected",
+    "source_ip": "192.168.4.138",
+    "timestamp": "2025-04-27 10:51:17",
+    "target_port": 443
+  },
+  {
+    "type": "NULL Scan Detected",
+    "source_ip": "192.168.4.138",
+    "timestamp": "2025-04-27 13:39:09",
+    "target_port": 443
+  }
+]

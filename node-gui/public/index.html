@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,26 +22,26 @@
       --border: #ddd;
       --shadow: rgba(0, 0, 0, 0.1);
     }
-    
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    
+
     body {
       background-color: #f5f7fa;
       color: var(--text);
       line-height: 1.6;
     }
-    
+
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
     }
-    
+
     header {
       background-color: var(--primary);
       color: white;
@@ -50,29 +51,29 @@
       z-index: 100;
       box-shadow: 0 2px 5px var(--shadow);
     }
-    
+
     .header-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    
+
     .logo h1 {
       font-size: 1.5rem;
       font-weight: 600;
     }
-    
+
     .logo span {
       color: var(--accent);
       font-weight: 300;
     }
-    
+
     .status-indicator {
       display: flex;
       align-items: center;
       font-size: 0.9rem;
     }
-    
+
     .status-dot {
       width: 10px;
       height: 10px;
@@ -80,18 +81,18 @@
       margin-right: 8px;
       background-color: var(--danger);
     }
-    
+
     .status-dot.connected {
       background-color: var(--success);
     }
-    
+
     .dashboard {
       display: grid;
       grid-template-columns: 1fr;
       gap: 20px;
       padding: 20px 0;
     }
-    
+
     .card {
       background: white;
       border-radius: 8px;
@@ -99,7 +100,7 @@
       overflow: hidden;
       margin-bottom: 20px;
     }
-    
+
     .card-header {
       background-color: var(--secondary);
       color: white;
@@ -110,81 +111,81 @@
       justify-content: space-between;
       align-items: center;
     }
-    
+
     .card-body {
       padding: 20px;
     }
-    
+
     #alerts-container {
       max-height: 70vh;
       overflow-y: auto;
       padding: 0;
     }
-    
+
     .alert {
       padding: 15px 20px;
       border-bottom: 1px solid var(--border);
       position: relative;
     }
-    
+
     .alert:last-child {
       border-bottom: none;
     }
-    
+
     .alert-warning {
       border-left: 4px solid var(--warning);
     }
-    
+
     .alert-danger {
       border-left: 4px solid var(--danger);
     }
-    
+
     .alert-info {
       border-left: 4px solid var(--accent);
     }
-    
+
     .alert-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 10px;
     }
-    
+
     .alert-type {
       font-weight: 600;
       color: var(--dark);
     }
-    
+
     .timestamp {
       font-size: 0.8rem;
       color: var(--text-light);
     }
-    
+
     .alert-content {
       font-size: 0.95rem;
     }
-    
+
     .alert-content .field {
       display: flex;
       margin-bottom: 5px;
     }
-    
+
     .alert-content .field-name {
       width: 100px;
       font-weight: 500;
     }
-    
+
     .alert-content .field-value {
       flex: 1;
       word-break: break-all;
     }
-    
+
     .alert-actions {
       display: flex;
       justify-content: flex-end;
       margin-top: 10px;
     }
-    
+
     .btn {
       padding: 8px 16px;
       border-radius: 4px;
@@ -194,52 +195,52 @@
       font-weight: 500;
       transition: all 0.2s;
     }
-    
+
     .btn-sm {
       padding: 5px 10px;
       font-size: 0.8rem;
     }
-    
+
     .btn-primary {
       background-color: var(--accent);
       color: white;
     }
-    
+
     .btn-primary:hover {
       background-color: var(--accent-dark);
     }
-    
+
     .btn-danger {
       background-color: var(--danger);
       color: white;
     }
-    
+
     .btn-danger:hover {
       opacity: 0.9;
     }
-    
+
     .btn-outline {
       background: none;
       border: 1px solid var(--border);
     }
-    
+
     .btn-outline:hover {
       background-color: var(--light);
     }
-    
+
     .filter-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 15px;
     }
-    
+
     .search-container {
       position: relative;
       flex: 1;
       max-width: 300px;
     }
-    
+
     .search-container i {
       position: absolute;
       top: 50%;
@@ -247,7 +248,7 @@
       transform: translateY(-50%);
       color: var(--text-light);
     }
-    
+
     .search-input {
       width: 100%;
       padding: 8px 10px 8px 35px;
@@ -256,19 +257,19 @@
       font-size: 0.9rem;
       transition: border-color 0.2s;
     }
-    
+
     .search-input:focus {
       outline: none;
       border-color: var(--accent);
     }
-    
+
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 15px;
       margin-bottom: 20px;
     }
-    
+
     .stat-card {
       padding: 15px;
       text-align: center;
@@ -276,7 +277,7 @@
       border-radius: 8px;
       box-shadow: 0 2px 5px var(--shadow);
     }
-    
+
     .stat-value {
       font-size: 1.5rem;
       font-weight: 700;
@@ -284,32 +285,79 @@
       margin: 10px 0 5px;
     }
 
-    .cwhite{
+    .cwhite {
       color: white;
     }
-    
+
     .stat-label {
       font-size: 0.9rem;
       color: var(--text-light);
     }
-    
+
+    /* Blocked IPs list styling */
+    #blocked-ips {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    #blocked-ips li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 15px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    #blocked-ips li:last-child {
+      border-bottom: none;
+    }
+
+    .ip-address {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .unblock-btn {
+      background-color: var(--light);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .unblock-btn:hover {
+      background-color: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 20px;
+      color: var(--text-light);
+      font-style: italic;
+    }
+
     @media (max-width: 768px) {
       .stats-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-      
+
       .filter-bar {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
       }
-      
+
       .search-container {
         max-width: 100%;
       }
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="container header-content">
@@ -329,7 +377,8 @@
         <div class="card-header">
           <span>Live Network Alerts</span>
           <div class="card-header-actions">
-            <button id="clear-alerts-btn" class="btn btn-sm btn-outline cwhite"><i class="fas fa-trash-alt"></i> Clear</button>
+            <button id="clear-alerts-btn" class="btn btn-sm btn-outline cwhite"><i class="fas fa-trash-alt"></i>
+              Clear</button>
           </div>
         </div>
         <div class="filter-bar card-body">
@@ -343,6 +392,7 @@
               <option value="Port Scan Detected">Port Scan</option>
               <option value="NULL Scan Detected">NULL Scan</option>
               <option value="Xmas Scan Detected">Xmas Scan</option>
+              <option value="Known">Known Attackers</option>
             </select>
             <select id="filter-time" class="btn btn-outline">
               <option value="all">All Time</option>
@@ -354,7 +404,20 @@
         </div>
         <div id="alerts-container"></div>
       </div>
-      
+
+      <div class="card">
+        <div class="card-header">
+          <span>Blocked IPs</span>
+        </div>
+        <div class="card-body">
+          <div class="search-container" style="margin-bottom: 15px;">
+            <i class="fas fa-search"></i>
+            <input type="text" id="search-blocked-ips" class="search-input" placeholder="Search blocked IPs...">
+          </div>
+          <ul id="blocked-ips"></ul>
+        </div>
+      </div>
+
       <div class="card">
         <div class="card-header">
           <span>Network Statistics</span>
@@ -366,7 +429,7 @@
               <div class="stat-label">Total Alerts</div>
             </div>
             <div class="stat-card">
-              <div class="stat-value" id="blocked-ips">0</div>
+              <div class="stat-value" id="blocked-ips-count">0</div>
               <div class="stat-label">Blocked IPs</div>
             </div>
             <div class="stat-card">
@@ -391,17 +454,19 @@
     const statusText = document.getElementById('status-text');
     const clearAlertsBtn = document.getElementById('clear-alerts-btn');
     const searchInput = document.getElementById('search-alerts');
+    const searchBlockedIpsInput = document.getElementById('search-blocked-ips');
     const filterType = document.getElementById('filter-type');
     const filterTime = document.getElementById('filter-time');
     const totalAlertsCounter = document.getElementById('total-alerts');
-    const blockedIpsCounter = document.getElementById('blocked-ips');
+    const blockedIpsCounter = document.getElementById('blocked-ips-count');
     const portScansCounter = document.getElementById('port-scans');
     const otherScansCounter = document.getElementById('other-scans');
+    const blockedIPsList = document.getElementById('blocked-ips');
 
-    // Alert storage
+    // Data stores
     const maxAlerts = 100;
     let alerts = [];
-    let blockedIps = new Set();
+    let blockedIPs = new Set(); // Single source of truth for blocked IPs
 
     // Statistics
     let stats = {
@@ -414,227 +479,280 @@
     // Socket.IO setup
     const socket = io();
 
+    // Fetch initial data from server
+    function fetchInitialData() {
+      // Fetch blocked IPs
+      fetch('/api/blocked-ips')
+        .then(res => res.json())
+        .then(data => {
+          if (data.blocked_ips) {
+            data.blocked_ips.forEach(ip => blockedIPs.add(ip));
+            updateBlockedIPsCount();
+            renderBlockedIPs();
+          }
+        })
+        .catch(err => console.error('Failed to fetch blocked IPs:', err));
+
+      // Fetch alert logs
+      fetch('/api/alert-logs')
+        .then(res => res.json())
+        .then(data => {
+          if (data.alerts) {
+            alerts = data.alerts;
+            updateStatsFromAlerts();
+            renderAlerts();
+          }
+        })
+        .catch(err => console.error('Failed to fetch alert logs:', err));
+    }
+
+    // Update stats based on loaded alerts
+    function updateStatsFromAlerts() {
+      stats.totalAlerts = alerts.length;
+      stats.portScans = alerts.filter(a => a.type?.includes('Port Scan')).length;
+      stats.otherScans = alerts.filter(a =>
+        a.type?.includes('NULL Scan') ||
+        a.type?.includes('Xmas Scan') ||
+        a.type?.includes('Known')
+      ).length;
+      stats.blockedIps = blockedIPs.size;
+      updateStats();
+    }
+
+    // Socket event handlers
     socket.on('connect', () => {
       statusDot.classList.add('connected');
       statusText.textContent = 'Connected to NIDS';
-      console.log('Socket.IO connected successfully');
     });
 
     socket.on('disconnect', () => {
       statusDot.classList.remove('connected');
       statusText.textContent = 'Disconnected';
-      console.log('Socket.IO disconnected');
     });
 
     socket.on('connect_error', (err) => {
       statusDot.classList.remove('connected');
       statusText.textContent = 'Connection Error';
-      console.error('Socket.IO connection error:', err);
+    });
+
+    socket.on('init_blocked_ips', (data) => {
+      if (data?.ips) {
+        blockedIPs = new Set(data.ips);
+        updateBlockedIPsCount();
+        renderBlockedIPs();
+      }
+    });
+
+    socket.on('init_alert_logs', (data) => {
+      if (data?.alerts) {
+        alerts = data.alerts;
+        updateStatsFromAlerts();
+        renderAlerts();
+      }
     });
 
     socket.on('display_packet', (data) => {
-      console.log('Received alert data:', data);
       processAlert(data);
     });
-    
+
     socket.on('ip_blocked', (data) => {
-      if (data && data.ip) {
-        blockedIps.add(data.ip);
-        updateStats();
-      }
-    });
-    
-    socket.on('ip_unblocked', (data) => {
-      if (data && data.ip && blockedIps.has(data.ip)) {
-        blockedIps.delete(data.ip);
-        updateStats();
+      if (data?.ip) {
+        blockedIPs.add(data.ip);
+        updateUIAfterIPChange(data.ip);
       }
     });
 
-    // Process and display alert
+    socket.on('ip_unblocked', (data) => {
+      if (data?.ip) {
+        blockedIPs.delete(data.ip);
+        updateUIAfterIPChange(data.ip);
+      }
+    });
+
+    // Unified function to handle IP changes
+    function updateUIAfterIPChange(ip) {
+      updateBlockedIPsCount();
+      renderBlockedIPs();
+      updateAlertButtons(ip);
+    }
+
+    function updateBlockedIPsCount() {
+      stats.blockedIps = blockedIPs.size;
+      blockedIpsCounter.textContent = stats.blockedIps;
+    }
+
+    function updateAlertButtons(ip) {
+      // Find all alert buttons for this IP and update their state
+      const alertButtons = document.querySelectorAll(`[data-ip="${ip}"]`);
+      alertButtons.forEach(btn => {
+        const isBlocked = blockedIPs.has(ip);
+        btn.className = isBlocked ? 'btn btn-sm btn-outline' : 'btn btn-sm btn-danger';
+        btn.textContent = isBlocked ? 'Unblock IP' : 'Block IP';
+      });
+    }
+
     function processAlert(data) {
       // Update stats
       stats.totalAlerts++;
-      if (data.type && data.type.toLowerCase().includes('port scan')) {
+      if (data.type?.toLowerCase().includes('port scan')) {
         stats.portScans++;
-      } else if (data.type && (data.type.toLowerCase().includes('null scan') || data.type.toLowerCase().includes('xmas scan'))) {
+      } else if (data.type?.toLowerCase().includes('null scan') ||
+        data.type?.toLowerCase().includes('xmas scan') ||
+        data.type?.toLowerCase().includes('known')) {
         stats.otherScans++;
       }
-      
       updateStats();
-      
+
       // Add to alerts array
       alerts.unshift(data);
-      if (alerts.length > maxAlerts) {
-        alerts.pop();
-      }
-      
-      // Re-render all alerts (with filters applied)
+      if (alerts.length > maxAlerts) alerts.pop();
+
       renderAlerts();
     }
 
+    function renderBlockedIPs() {
+      blockedIPsList.innerHTML = '';
+
+      const searchTerm = searchBlockedIpsInput.value.toLowerCase();
+      const filteredIPs = Array.from(blockedIPs).filter(ip =>
+        ip.toLowerCase().includes(searchTerm)
+      );
+
+      if (filteredIPs.length === 0) {
+        blockedIPsList.innerHTML = '<div class="empty-state">No IPs match the current search</div>';
+        return;
+      }
+
+      filteredIPs.forEach(ip => {
+        const li = document.createElement('li');
+
+        const ipSpan = document.createElement('span');
+        ipSpan.className = 'ip-address';
+        ipSpan.textContent = ip;
+
+        const unblockBtn = document.createElement('button');
+        unblockBtn.className = 'unblock-btn';
+        unblockBtn.textContent = 'Unblock';
+        unblockBtn.addEventListener('click', () => {
+          socket.emit('ip_unblocked', { ip });
+        });
+
+        li.appendChild(ipSpan);
+        li.appendChild(unblockBtn);
+        blockedIPsList.appendChild(li);
+      });
+    }
+
     function renderAlerts() {
-      // Clear container
       alertsContainer.innerHTML = '';
-      
-      // Get filter values
+
       const searchTerm = searchInput.value.toLowerCase();
       const typeFilter = filterType.value;
       const timeFilter = filterTime.value;
-      
-      // Calculate time threshold for time filter
-      let timeThreshold = null;
-      if (timeFilter !== 'all') {
-        const now = new Date();
-        if (timeFilter === '1h') {
-          timeThreshold = new Date(now.getTime() - 60 * 60 * 1000);
-        } else if (timeFilter === '24h') {
-          timeThreshold = new Date(now.getTime() - 24 * 60 * 60 * 1000);
-        } else if (timeFilter === '7d') {
-          timeThreshold = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-        }
-      }
-      
-      // Filter and render alerts
-      let filteredAlerts = alerts.filter(alert => {
-        // Search filter
-        let matchesSearch = true;
-        if (searchTerm) {
-          const alertText = JSON.stringify(alert).toLowerCase();
-          matchesSearch = alertText.includes(searchTerm);
-        }
-        
-        // Type filter
-        let matchesType = true;
-        if (typeFilter !== 'all') {
-          matchesType = alert.type === typeFilter;
-        }
-        
-        // Time filter
-        let matchesTime = true;
-        if (timeThreshold) {
-          const alertTime = new Date(alert.timestamp);
-          matchesTime = alertTime >= timeThreshold;
-        }
-        
-        return matchesSearch && matchesType && matchesTime;
-      });
-      
+      const timeThreshold = calculateTimeThreshold(timeFilter);
+
+      const filteredAlerts = alerts.filter(alert => filterAlert(alert, searchTerm, typeFilter, timeThreshold));
+
       if (filteredAlerts.length === 0) {
-        const emptyState = document.createElement('div');
-        emptyState.className = 'card-body';
-        emptyState.innerHTML = '<p style="text-align: center; color: var(--text-light);">No alerts match the current filters</p>';
-        alertsContainer.appendChild(emptyState);
+        alertsContainer.innerHTML = '<div class="card-body"><p style="text-align: center; color: var(--text-light);">No alerts match the current filters</p></div>';
         return;
       }
-      
-      // Render each alert
+
       filteredAlerts.forEach(alert => {
-        const alertDiv = createAlertElement(alert);
-        alertsContainer.appendChild(alertDiv);
+        alertsContainer.appendChild(createAlertElement(alert));
       });
+    }
+
+    function calculateTimeThreshold(timeFilter) {
+      if (timeFilter === 'all') return null;
+      const now = new Date();
+      const hours = timeFilter === '1h' ? 1 : timeFilter === '24h' ? 24 : 7 * 24;
+      return new Date(now.getTime() - hours * 60 * 60 * 1000);
+    }
+
+    function filterAlert(alert, searchTerm, typeFilter, timeThreshold) {
+      const matchesSearch = !searchTerm || JSON.stringify(alert).toLowerCase().includes(searchTerm);
+      const matchesType = typeFilter === 'all' ||
+        (typeFilter === 'Known' ? alert.type?.startsWith('Known') : alert.type === typeFilter);
+      const matchesTime = !timeThreshold || new Date(alert.timestamp) >= timeThreshold;
+      return matchesSearch && matchesType && matchesTime;
     }
 
     function createAlertElement(data) {
       const alertDiv = document.createElement('div');
-      alertDiv.className = 'alert';
-      
-      // Add appropriate class based on alert type
-      if (data.type && data.type.toLowerCase().includes('scan')) {
-        alertDiv.classList.add('alert-warning');
-      } else {
-        alertDiv.classList.add('alert-info');
-      }
-      
-      // Alert header with type and timestamp
+      alertDiv.className = `alert ${getAlertClass(data.type)}`;
+
       const headerDiv = document.createElement('div');
       headerDiv.className = 'alert-header';
-      
-      const typeSpan = document.createElement('span');
-      typeSpan.className = 'alert-type';
-      typeSpan.textContent = data.type || 'Unknown Alert';
-      
-      const timestampSpan = document.createElement('span');
-      timestampSpan.className = 'timestamp';
-      timestampSpan.textContent = data.timestamp || new Date().toLocaleTimeString();
-      
-      headerDiv.appendChild(typeSpan);
-      headerDiv.appendChild(timestampSpan);
-      
-      // Alert content
+      headerDiv.innerHTML = `
+        <span class="alert-type">${data.type || 'Unknown Alert'}</span>
+        <span class="timestamp">${data.timestamp || new Date().toLocaleTimeString()}</span>
+      `;
+
       const contentDiv = document.createElement('div');
       contentDiv.className = 'alert-content';
-      
-      // Add fields
-      if (data.source_ip) {
-        const field = createField('Source IP:', data.source_ip);
-        contentDiv.appendChild(field);
-      }
-      
-      if (data.target_port) {
-        const field = createField('Target Port:', data.target_port);
-        contentDiv.appendChild(field);
-      }
-      
-      if (data.details) {
-        const field = createField('Details:', data.details);
-        contentDiv.appendChild(field);
-      }
-      
-      // Alert actions
+      if (data.source_ip) contentDiv.appendChild(createField('Source IP:', data.source_ip));
+      if (data.target_port) contentDiv.appendChild(createField('Target Port:', data.target_port));
+      if (data.details) contentDiv.appendChild(createField('Details:', data.details));
+
       const actionsDiv = document.createElement('div');
       actionsDiv.className = 'alert-actions';
-      
+
       if (data.source_ip) {
-        // Check if IP is already blocked
-        const isBlocked = blockedIps.has(data.source_ip);
-        
+        const isBlocked = blockedIPs.has(data.source_ip);
         const blockBtn = document.createElement('button');
         blockBtn.className = isBlocked ? 'btn btn-sm btn-outline' : 'btn btn-sm btn-danger';
         blockBtn.textContent = isBlocked ? 'Unblock IP' : 'Block IP';
+        blockBtn.dataset.ip = data.source_ip; // Add data attribute for easy lookup
         blockBtn.addEventListener('click', () => {
-          if (isBlocked) {
-            socket.emit('unblock_ip', { ip: data.source_ip });
+          if (blockBtn.textContent === 'Unblock IP') {
+            blockedIPs.delete(data.source_ip);
+            blockBtn.className = 'btn btn-sm btn-danger';
+            blockBtn.textContent = 'Block IP';
+            socket.emit('ip_unblocked', { ip: data.source_ip });
+            updateUIAfterIPChange(data.source_ip);            
           } else {
-            socket.emit('block_ip', { 
-              ip: data.source_ip, 
-              reason: data.type || 'Manually blocked' 
+            socket.emit('block_ip', {
+              ip: data.source_ip,
+              reason: data.type || 'Manually blocked'
             });
+            blockBtn.className = 'btn btn-sm btn-outline';
+            blockBtn.textContent = 'Unblock IP';
+            blockedIPs.add(data.source_ip);
+            updateUIAfterIPChange(data.source_ip);
           }
         });
-        
         actionsDiv.appendChild(blockBtn);
       }
-      
-      // Assemble the alert
+
       alertDiv.appendChild(headerDiv);
       alertDiv.appendChild(contentDiv);
       alertDiv.appendChild(actionsDiv);
-      
+
       return alertDiv;
+    }
+
+    function getAlertClass(alertType) {
+      if (!alertType) return 'alert-info';
+      if (alertType.includes('Port Scan')) return 'alert-warning';
+      if (alertType.includes('NULL Scan') || alertType.includes('Xmas Scan')) return 'alert-danger';
+      if (alertType.startsWith('Known')) return 'alert-danger';
+      return 'alert-info';
     }
 
     function createField(name, value) {
       const field = document.createElement('div');
       field.className = 'field';
-      
-      const fieldName = document.createElement('div');
-      fieldName.className = 'field-name';
-      fieldName.textContent = name;
-      
-      const fieldValue = document.createElement('div');
-      fieldValue.className = 'field-value';
-      fieldValue.textContent = value;
-      
-      field.appendChild(fieldName);
-      field.appendChild(fieldValue);
-      
+      field.innerHTML = `
+        <div class="field-name">${name}</div>
+        <div class="field-value">${value}</div>
+      `;
       return field;
     }
 
     function updateStats() {
       totalAlertsCounter.textContent = stats.totalAlerts;
-      blockedIpsCounter.textContent = blockedIps.size;
+      blockedIpsCounter.textContent = stats.blockedIps;
       portScansCounter.textContent = stats.portScans;
       otherScansCounter.textContent = stats.otherScans;
     }
@@ -642,16 +760,18 @@
     // Event listeners
     clearAlertsBtn.addEventListener('click', () => {
       alerts = [];
+      updateStatsFromAlerts();
       renderAlerts();
     });
 
     searchInput.addEventListener('input', renderAlerts);
+    searchBlockedIpsInput.addEventListener('input', renderBlockedIPs);
     filterType.addEventListener('change', renderAlerts);
     filterTime.addEventListener('change', renderAlerts);
 
     // Initialize
-    renderAlerts();
-    updateStats();
+    fetchInitialData();
   </script>
 </body>
+
 </html>
